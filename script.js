@@ -1,8 +1,30 @@
-const clone = (jsonObject) => { return JSON.parse(JSON.stringify(jsonObject)); };
+/*Util Classes*/
 
-/* Title SVG */
+const clone = (jsonObject) => { return JSON.parse(JSON.stringify(jsonObject)); };
+const swapClasses = (target, c1, c2) => { target.classList.remove(c1); target.classList.add(c2); };
+
+// var child = document.getElementById('my_element');
+// var parent = child.parentNode;
+// The equivalent of parent.children.indexOf(child)
+// var index = Array.prototype.indexOf.call(parent.children, child);
+
+function siblingIndex(child) {
+  const parent = child.parentNode;
+  return Array.prototype.indexOf.call(parent.children, child);
+}
+
+/* DOM Elements */
 
 const titleSVG = document.getElementById("title-svg");
+const navBar = document.querySelector(".nav-bar");
+const navButtons = document.querySelectorAll(".btn-nav");
+const panelGroup = document.querySelector(".panel-col");
+
+/* State */
+
+let activePanelIndex = 0;
+
+/* Title SVG */
 
 function getShadowParams(shadowElement) {
   const unit = "vw";
@@ -114,22 +136,57 @@ document.addEventListener('DOMContentLoaded', (event) => {
       titleShadow = getShadowParams(titleSVG);
       // console.log("titleShadow: ", titleShadow);
       shadowAngle = (shadowAngle % 360) - 10;
-      setInsetShadows(titleSVG, document.querySelector(".main-panel"))
+
     } else {
       setShadowAngle(titleSVG, .3, getTitleAngle(), 0.3);
       titleShadow = getShadowParams(titleSVG);
       // setInsetShadows(titleSVG, document.querySelector(".main-panel"))
-
-      document.querySelectorAll(".shadow-inset").forEach(navBtn => {
-        setInsetShadows(titleSVG, navBtn);
-      });
-
-      document.querySelectorAll(".shadow-outset").forEach(navBtn => {
-        setOutsetShadows(titleSVG, navBtn);
-      });
     }
+
+    document.querySelectorAll(".shadow-inset").forEach(element => {
+      setInsetShadows(titleSVG, element);
+    });
+
+    document.querySelectorAll(".shadow-outset").forEach(element => {
+      setOutsetShadows(titleSVG, element);
+    });
 
   }, 20);
 });
 
-/*  */
+/* Nav Buttons */
+
+function navButtonReset(element) {
+  swapClasses(element, "shadow-inset", "shadow-outset");
+  swapClasses(element, "btn-nav-depressed", "blank");
+}
+
+function navButtonDepress(element) {
+  swapClasses(element, "shadow-outset", "shadow-inset");
+  swapClasses(element, "blank", "btn-nav-depressed");
+}
+
+navButtons.forEach(navButton => {
+  navButton.addEventListener('click', () => {
+
+    const activePanel = panelGroup.children[activePanelIndex];
+    const newPanelIndex = siblingIndex(navButton);
+    const newPanel = panelGroup.children[newPanelIndex];
+
+    navButtons.forEach(nb => {
+      navButtonReset(nb);
+    });
+    navButtonDepress(navButton);
+    const panelClasses = "panel-container ";
+    if (newPanelIndex > activePanelIndex) {
+      newPanel.className = panelClasses + "panel-enter-right active-panel";
+      activePanel.className = panelClasses + "panel-exit-left";
+    } else if (newPanelIndex < activePanelIndex) {
+      newPanel.className = panelClasses + "panel-enter-left active-panel";
+      activePanel.className = panelClasses + "panel-exit-right";
+    }
+
+    activePanelIndex = newPanelIndex;
+
+  });
+});
