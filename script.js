@@ -43,7 +43,7 @@ function incrementShadow(shadowElement, x, y, range) {
 function setShadowAngle(shadowElement, radius, angle, range) {
   const radians = angle * (Math.PI / 180);
   // console.log("radians: ", radians);
-  const newShadow = clone(getShadowParams(shadowElement));
+  const newShadow = getShadowParams(shadowElement);
   newShadow.x = radius * Math.sin(radians);
   newShadow.y = radius * Math.cos(radians);
   newShadow.range = range;
@@ -53,7 +53,7 @@ function setShadowAngle(shadowElement, radius, angle, range) {
 }
 
 let titleShadow;
-let shadowAngle = 0;
+let shadowAngle = 359;
 let cursorX;
 let cursorY;
 
@@ -67,7 +67,33 @@ function getTitleAngle() {
   const wh = window.innerHeight;
   const opposite = 1 * ((ww / 2) - cursorX);
   const adjacent = 1 * ((wh) - cursorY);
-  return -1 * (Math.atan(opposite / adjacent) * (180 / Math.PI)) + 180;
+  return -1 * (Math.atan(opposite / adjacent) * (180 / Math.PI)) + 0;
+}
+
+function setInsetShadows(refElement, target) {
+  // const shadowStyle = window.getComputedStyle(refShadow, null).filter;
+  const unit = "px";
+  const shadow = getShadowParams(refElement);
+  const x = shadow.x;
+  const y = shadow.y;
+  const range = shadow.range;
+  const styleString = `inset rgba(0, 0, 0, 0.5) ${x}${unit} ${y}${unit} ${range}${unit}`;
+  // console.log("styleString: ", styleString);
+
+  target.style.boxShadow = styleString;
+}
+
+function setOutsetShadows(refElement, target) {
+  // const shadowStyle = window.getComputedStyle(refShadow, null).filter;
+  const unit = "px";
+  const shadow = getShadowParams(refElement);
+  const x = shadow.x;
+  const y = shadow.y;
+  const range = shadow.range;
+  const styleString = `rgba(0, 0, 0, 0.2) ${x}${unit} ${y}${unit} ${range}${unit}`;
+  // console.log("styleString: ", styleString);
+
+  target.style.boxShadow = styleString;
 }
 
 // drop-shadow(rgba(0, 0, 0, 0.4) 4vw 3vw 2vw);
@@ -83,13 +109,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
   // }, 2);
 
   setInterval(() => {
-    if (shadowAngle < 360) {
+    if (shadowAngle > 0) {
       setShadowAngle(titleSVG, .3, shadowAngle, 0.3);
       titleShadow = getShadowParams(titleSVG);
       // console.log("titleShadow: ", titleShadow);
-      shadowAngle = (shadowAngle % 360) + 10;
+      shadowAngle = (shadowAngle % 360) - 10;
+      setInsetShadows(titleSVG, document.querySelector(".main-panel"))
     } else {
       setShadowAngle(titleSVG, .3, getTitleAngle(), 0.3);
+      titleShadow = getShadowParams(titleSVG);
+      // setInsetShadows(titleSVG, document.querySelector(".main-panel"))
+
+      document.querySelectorAll(".shadow-inset").forEach(navBtn => {
+        setInsetShadows(titleSVG, navBtn);
+      });
+
+      document.querySelectorAll(".shadow-outset").forEach(navBtn => {
+        setOutsetShadows(titleSVG, navBtn);
+      });
     }
 
   }, 20);

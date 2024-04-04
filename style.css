@@ -1,14 +1,18 @@
+:root {
+  --corners: 20px;
+}
+
 .inset-shadow {
   /* width: 200px; */
   /* text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.33); */
   filter: drop-shadow(rgba(0, 0, 0, 0.6) 0px 0px 0.3vw);
   /* height: 50%; */
   clip-path: inset(15%);
+  border: 5px solid purple;
 }
 
 .move-shadow {
   animation: moveShadow 1s linear 0s 1 normal forwards;
-  /* animation-direction: normal; */
 }
 
 @keyframes moveShadow {
@@ -21,4 +25,42 @@
 body {
   /* background-color: grey; */
   background-color: #ccc;
+}
+
+.main-panel {
+  background-color: #ddd;
+  border-radius: var(--corners);
+  padding: 20px;
+
+  height: 60vh;
+}
+
+.nav-bar {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-nav {
+  user-select: none;
+  background-color: #d5d5d5;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(90, 90, 90);
+  margin: 10px;
+  padding: 10px;
+  border-radius: var(--corners);
+  border-style: none none solid none;
+  border-color: rgb(150, 150, 150);
+  border-width: 5px;
+}
+
+.shadow-inset {
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-outset {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
