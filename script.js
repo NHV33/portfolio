@@ -120,39 +120,40 @@ function setOutsetShadows(refElement, target) {
 
 // drop-shadow(rgba(0, 0, 0, 0.4) 4vw 3vw 2vw);
 document.addEventListener('DOMContentLoaded', (event) => {
-  titleShadow = getShadowParams(titleSVG);
-
-  // setInterval(() => {
-  //   if (titleShadow.y < 3) {
-  //     incrementShadow(titleSVG, -0.005, 0.01, 0.007);
-  //     titleShadow = getShadowParams(titleSVG);
-  //     console.log("titleShadow: ", titleShadow);
-  //   }
-  // }, 2);
-
-  setInterval(() => {
-    if (shadowAngle > 0) {
-      setShadowAngle(titleSVG, .3, shadowAngle, 0.3);
-      titleShadow = getShadowParams(titleSVG);
-      // console.log("titleShadow: ", titleShadow);
-      shadowAngle = (shadowAngle % 360) - 10;
-
-    } else {
-      setShadowAngle(titleSVG, .3, getTitleAngle(), 0.3);
-      titleShadow = getShadowParams(titleSVG);
-      // setInsetShadows(titleSVG, document.querySelector(".main-panel"))
-    }
-
-    document.querySelectorAll(".shadow-inset").forEach(element => {
-      setInsetShadows(titleSVG, element);
-    });
-
-    document.querySelectorAll(".shadow-outset").forEach(element => {
-      setOutsetShadows(titleSVG, element);
-    });
-
-  }, 20);
 });
+
+titleShadow = getShadowParams(titleSVG);
+
+// setInterval(() => {
+//   if (titleShadow.y < 3) {
+//     incrementShadow(titleSVG, -0.005, 0.01, 0.007);
+//     titleShadow = getShadowParams(titleSVG);
+//     console.log("titleShadow: ", titleShadow);
+//   }
+// }, 2);
+
+setInterval(() => {
+  if (shadowAngle > 0) {
+    setShadowAngle(titleSVG, .3, shadowAngle, 0.3);
+    titleShadow = getShadowParams(titleSVG);
+    // console.log("titleShadow: ", titleShadow);
+    shadowAngle = (shadowAngle % 360) - 10;
+
+  } else {
+    setShadowAngle(titleSVG, .3, getTitleAngle(), 0.3);
+    titleShadow = getShadowParams(titleSVG);
+    // setInsetShadows(titleSVG, document.querySelector(".main-panel"))
+  }
+
+  document.querySelectorAll(".shadow-inset").forEach(element => {
+    setInsetShadows(titleSVG, element);
+  });
+
+  document.querySelectorAll(".shadow-outset").forEach(element => {
+    setOutsetShadows(titleSVG, element);
+  });
+
+}, 20);
 
 /* Nav Buttons */
 
