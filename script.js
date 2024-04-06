@@ -92,30 +92,18 @@ function getTitleAngle() {
   return -1 * (Math.atan(opposite / adjacent) * (180 / Math.PI)) + 0;
 }
 
-function setInsetShadows(refElement, target) {
-  // const shadowStyle = window.getComputedStyle(refShadow, null).filter;
+function setOtherShadows(refElement, target, setting) {
   const unit = "px";
   const shadow = getShadowParams(refElement);
   const x = shadow.x;
   const y = shadow.y;
   const range = shadow.range;
-  const styleString = `inset rgba(0, 0, 0, 0.5) ${x}${unit} ${y}${unit} ${range}${unit}`;
-  // console.log("styleString: ", styleString);
 
-  target.style.boxShadow = styleString;
-}
-
-function setOutsetShadows(refElement, target) {
-  // const shadowStyle = window.getComputedStyle(refShadow, null).filter;
-  const unit = "px";
-  const shadow = getShadowParams(refElement);
-  const x = shadow.x;
-  const y = shadow.y;
-  const range = shadow.range;
-  const styleString = `rgba(0, 0, 0, 0.2) ${x}${unit} ${y}${unit} ${range}${unit}`;
-  // console.log("styleString: ", styleString);
-
-  target.style.boxShadow = styleString;
+  if (setting === "inset") {
+    target.style.boxShadow = `inset rgba(0, 0, 0, 0.5) ${x}${unit} ${y}${unit} ${range}${unit}`;
+  } else {
+    target.style.boxShadow = `rgba(0, 0, 0, 0.2) ${x}${unit} ${y}${unit} ${range}${unit}`;
+  }
 }
 
 // drop-shadow(rgba(0, 0, 0, 0.4) 4vw 3vw 2vw);
@@ -146,11 +134,11 @@ setInterval(() => {
   }
 
   document.querySelectorAll(".shadow-inset").forEach(element => {
-    setInsetShadows(titleSVG, element);
+    setOtherShadows(titleSVG, element, "inset");
   });
 
   document.querySelectorAll(".shadow-outset").forEach(element => {
-    setOutsetShadows(titleSVG, element);
+    setOtherShadows(titleSVG, element, "outset");
   });
 
 }, 20);
