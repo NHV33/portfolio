@@ -214,7 +214,7 @@ function renderFromTemplate(projectName, projectInfo) {
 
 let hostname = String(window.location.host);
 // hostname = "github.io";
-const fetchURL = (hostname.includes("github")) ? "portfolio/projects.json" : "/projects.json";
+const fetchURL = (hostname.includes("github")) ? "https://nhv33.github.io/portfolio/projects.json" : "/projects.json";
 console.log("fetchURL: ", fetchURL);
 
 async function fetchProjects() {
