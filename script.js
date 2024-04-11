@@ -211,9 +211,9 @@ function renderFromTemplate(projectName, projectInfo) {
 
   document.getElementById(projectName).append(template);
 }
-
+console.log(window.location.host);
 async function fetchProjects() {
-  const response = await fetch("projects.json");
+  const response = await fetch("/projects.json");
   const projects = await response.json();
   console.log(projects);
 
