@@ -2,6 +2,7 @@
   --corners: 20px;
   --accent-color: hsl(182, 33%, 77%);
   --panel-slide-rate: 400ms;
+  --panel-height: 70vh;
 }
 
 .inset-shadow {
@@ -16,12 +17,82 @@
 body {
   /* background-color: grey; */
   background-color: #ccc;
+  overflow: hidden;
+}
+
+.border-bottom-grey {
+  border-bottom: 1px solid rgb(201, 201, 201);
+}
+
+.project-image {
+  border-radius: var(--corners);
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.project-image-frame {
+  /* background-color: rgb(202, 202, 202); */
+  /* border-radius: var(--corners); */
+  /* border-right: 1px solid rgb(201, 201, 201); */
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.project-info-frame {
+  background-color: rgb(202, 202, 202);
+  border-radius: var(--corners);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.project-icons {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  /* height: 10vmin; */
+  /* padding: .5vh; */
+  padding: 5px;
+  background-color: rgb(174, 174, 174);
+  width: fit-content;
+  border-radius: 10px;
+  border: 2px solid rgb(216, 216, 216);
+}
+
+.project-icon {
+  /* margin: .5vh;
+  height: 3vh; */
+  margin: 5px;
+  height: 33px;
+  filter: drop-shadow(1px 1px 1px black);
 }
 
 .nav-bar {
   margin-bottom: 10px;
   display: flex;
   justify-content: center;
+}
+
+.btn-def {
+  user-select: none;
+  background-color: #d5d5d5;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(90, 90, 90);
+  margin: 10px;
+  padding: 10px;
+  border-radius: var(--corners);
+  border-style: none none solid none;
+  border-color: rgb(150, 150, 150);
+  border-width: 5px;
 }
 
 .btn-nav {
@@ -84,24 +155,16 @@ body {
   border-radius: var(--corners);
   padding: 20px;
 
-  height: 60vh;
+  height: var(--panel-height);
   /* visibility: hidden; */
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.overlap-test {
-  position: relative;
-  height: 300px;
-  width: 300px;
-  background-color: aqua;
-  z-index: -100;
-}
-
-img {
+/* img {
   position: relative;
   z-index: -1000;
-}
+} */
 
 .panel-bg {
   z-index: -20;
@@ -113,7 +176,7 @@ img {
   border-radius: var(--corners);
   /* padding: 20px; */
 
-  height: 60vh;
+  height: var(--panel-height);
 }
 
 .panel-shadow {
@@ -127,7 +190,7 @@ img {
   border-radius: var(--corners);
   /* padding: 20px; */
 
-  height: 60vh;
+  height: var(--panel-height);
 }
 
 .active-panel { visibility: visible; }

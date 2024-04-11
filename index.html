@@ -11,6 +11,52 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+
+    <template id="project-template">
+        <div class="row text-center border-bottom-grey">
+          <h1 class="project-name">Project Name</h1>
+        </div>
+
+        <div class="row">
+
+          <div class="mt-4 col-lg-6 col-sm-12 position-relative">
+
+            <div class="project-image-frame">
+              <img class="project-image" src="https://plus.unsplash.com/premium_photo-1668424271158-d59b0381425b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            </div>
+
+            <div class="project-icons">
+              <img src="svg/html5.svg" class="project-icon"></img>
+              <img src="svg/css.svg" class="project-icon"></img>
+              <img src="svg/js.svg" class="project-icon"></img>
+            </div>
+          </div>
+          <div class="mt-4 col-lg-6 col-sm-12">
+
+            <p class="project-info fs-5">
+              The following is a description of the project.
+              It explains the software's unique features and the technology ulitized.
+            </p>
+
+            <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+              <a href="https://youtube.com" target="_blank" class="project-demo col-8 btn btn-success rounded-pill fs-4 px-5">
+                Try it out
+              </a>
+
+              <a href="https://youtube.com" target="_blank" class="project-code col-8 btn btn-secondary rounded-pill fs-4 px-5 bg-black font-success text-nowrap font-monospace m-3">
+                { View Code }
+              </a>
+
+              <a href="https://youtube.com" target="_blank" class="project-video col-8 btn btn-secondary rounded-pill fs-4 px-5 bg-danger font-success text-nowrap">
+                Watch Demo
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+    </template>
+
     <main class="main-col container">
       <svg id="title-svg" viewbox="0 10 100 12" class="inset-shadow">
         <defs>
@@ -44,11 +90,11 @@
           Unity / VR
         </div>
 
-
       </nav>
+
       <div class="panel-col">
 
-        <div class="panel-container active-panel">
+        <div id="panel-about" class="panel-container">
           <div class="panel-shadow shadow-inset"></div>
           <div class="panel-content">
             <div class="row">
@@ -108,12 +154,15 @@
 
         </div>
 
-        <div class="panel-container">
+
+
+        <div id="panel-fullstack" class="panel-container active-panel">
           <div class="panel-shadow shadow-inset"></div>
 
           <div class="panel-content">
-            Number 2
-            <img src="https://plus.unsplash.com/premium_photo-1668424271158-d59b0381425b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+
+            <div id="test-project" class="project-box"></div>
+
           </div>
 
         </div>

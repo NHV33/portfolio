@@ -108,9 +108,9 @@ function setOtherShadows(refElement, target, setting) {
 
 // drop-shadow(rgba(0, 0, 0, 0.4) 4vw 3vw 2vw);
 document.addEventListener('DOMContentLoaded', (event) => {
+  titleShadow = getShadowParams(titleSVG);
 });
 
-titleShadow = getShadowParams(titleSVG);
 
 // setInterval(() => {
 //   if (titleShadow.y < 3) {
@@ -179,3 +179,47 @@ navButtons.forEach(navButton => {
 
   });
 });
+
+/*Display Content*/
+
+function newElement(tag, classes) {
+  const newElem = document.createElement(tag);
+  newElem.className = classes;
+  return newElem;
+}
+
+const projectTemplate = document.getElementById("project-template");
+
+function renderFromTemplate(projectName, projectInfo) {
+  let template = projectTemplate.cloneNode(true).content;
+
+  template.querySelector(".project-name").innerText = projectInfo.name;
+  template.querySelector(".project-info").innerText = projectInfo.info;
+  template.querySelector(".project-image").src = projectInfo.image;
+  template.querySelector(".project-demo").href = projectInfo.demo;
+  template.querySelector(".project-code").href = projectInfo.code;
+  template.querySelector(".project-video").href = projectInfo.video;
+
+  // project-icons
+  const iconBox = template.querySelector(".project-icons")
+  iconBox.textContent = "";
+  projectInfo.icons.forEach(iconName => {
+    const newIcon = newElement("img", "project-icon");
+    newIcon.src = `svg/${iconName}.svg`;
+    iconBox.append(newIcon);
+  });
+
+  document.getElementById(projectName).append(template);
+}
+
+async function fetchProjects() {
+  const response = await fetch("projects.json");
+  const projects = await response.json();
+  console.log(projects);
+
+  Object.keys(projects).forEach( projectName => {
+    renderFromTemplate(projectName, projects[projectName]);
+  });
+}
+
+fetchProjects();
