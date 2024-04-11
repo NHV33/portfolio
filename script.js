@@ -212,8 +212,11 @@ function renderFromTemplate(projectName, projectInfo) {
   document.getElementById(projectName).append(template);
 }
 console.log(window.location.host);
+
 async function fetchProjects() {
-  const response = await fetch("/projects.json");
+  const fetchURL = (window.location.host.includes("github")) ? "portfolio/projects.json" : "/projects.json";
+  console.log("fetchURL: ", fetchURL);
+  const response = await fetch(fetchURL);
   const projects = await response.json();
   console.log(projects);
 
