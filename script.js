@@ -153,6 +153,7 @@ function navButtonReset(element) {
 function navButtonDepress(element) {
   swapClasses(element, "shadow-outset", "shadow-inset");
   swapClasses(element, "blank", "btn-nav-depressed");
+  element.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
 }
 
 navButtons.forEach(navButton => {
@@ -165,11 +166,15 @@ navButtons.forEach(navButton => {
     navButtons.forEach(nb => {
       navButtonReset(nb);
     });
+
     navButtonDepress(navButton);
+
     const panelClasses = "panel-container ";
+
     if (newPanelIndex > activePanelIndex) {
       newPanel.className = panelClasses + "panel-enter-right active-panel";
       activePanel.className = panelClasses + "panel-exit-left";
+
     } else if (newPanelIndex < activePanelIndex) {
       newPanel.className = panelClasses + "panel-enter-left active-panel";
       activePanel.className = panelClasses + "panel-exit-right";
@@ -208,9 +213,10 @@ function renderFromTemplate(projectName, projectInfo) {
     {name: "name",  attribute: "innerHTML"},
     {name: "info",  attribute: "innerHTML"},
     {name: "image", attribute: "src"},
+    {name: "video", attribute: "src"},
     {name: "demo",  attribute: "href"},
     {name: "code",  attribute: "href"},
-    {name: "video", attribute: "href"},
+    {name: "watch", attribute: "href"},
   ]
 
   infoSections.forEach(section => {

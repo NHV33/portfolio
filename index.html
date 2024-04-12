@@ -13,48 +13,69 @@
   <body>
 
     <template id="project-template">
-        <div class="row text-center border-bottom-grey">
-          <h1 class="project-name">Project Name</h1>
+
+      <div class="row mt-4 mb-3 border-bottom-grey"></div>
+
+      <h1 class="project-name col-12 text-center">Project Name</h1>
+      <!-- <div class="row d-flex justify-content-center text-center">
+
         </div>
+        <div class="col-lg-6 col-sm-12 text-center">
+
+        <div class="col-lg-6 col-sm-12 d-flex justify-content-center">
+        </div>
+
+      </div> -->
+
 
         <div class="row">
 
-          <div class="mt-4 col-lg-6 col-sm-12 position-relative">
+          <div class="mt-3 col-lg-6 col-sm-12 position-relative">
 
             <div class="project-image-frame">
               <img class="project-image" src="https://plus.unsplash.com/premium_photo-1668424271158-d59b0381425b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+              <video autoplay loop class="project-video" src="https://plus.unsplash.com/premium_photo-1668424271158-d59b0381425b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""></video>
             </div>
 
-            <div class="project-icons">
-              <img src="svg/html5.svg" class="project-icon"></img>
-              <img src="svg/css.svg" class="project-icon"></img>
-              <img src="svg/js.svg" class="project-icon"></img>
-            </div>
           </div>
-          <div class="mt-4 col-lg-6 col-sm-12">
 
-            <p class="project-info fs-5">
-              The following is a description of the project.
-              It explains the software's unique features and the technology ulitized.
-            </p>
+          <div class="mt-3 col-lg-6 col-sm-12">
 
-            <div class="col-12 d-flex flex-column justify-content-center align-items-center">
-              <a href="https://youtube.com" target="_blank" class="project-demo col-8 btn btn-success rounded-pill fs-4 px-5">
-                Try it out
-              </a>
+              <div class="project-info-frame">
 
-              <a href="https://youtube.com" target="_blank" class="project-code col-8 btn btn-secondary rounded-pill fs-4 px-5 bg-black font-success text-nowrap font-monospace m-3">
-                { View Code }
-              </a>
+                <div class="project-icons">
+                  <img src="svg/html5.svg" class="project-icon"></img>
+                  <img src="svg/css.svg" class="project-icon"></img>
+                  <img src="svg/js.svg" class="project-icon"></img>
+                </div>
 
-              <a href="https://youtube.com" target="_blank" class="project-video col-8 btn btn-secondary rounded-pill fs-4 px-5 bg-danger font-success text-nowrap">
-                Watch Demo
-              </a>
-            </div>
+                <div class="col px-4 d-flex flex-column justify-content-center align-items-center">
+
+                  <p class="project-info fs-5 mb-5">
+                    The following is a description of the project.
+                    It explains the software's unique features and the technology ulitized.
+                  </p>
+
+                  <a href="https://youtube.com" target="_blank" class="project-demo col-8 btn btn-success rounded-pill fs-5 px-5">
+                    Try it out
+                  </a>
+
+                  <a href="https://youtube.com" target="_blank" class="project-code col-8 btn btn-secondary rounded-pill fs-5 px-5 bg-black font-success text-nowrap font-monospace m-3">
+                    { View Code }
+                  </a>
+
+                  <a href="https://youtube.com" target="_blank" class="project-watch col-8 btn btn-secondary rounded-pill fs-5 px-5 bg-danger font-success text-nowrap">
+                    Watch Demo
+                  </a>
+
+                </div>
+
+              </div>
 
           </div>
 
         </div>
+
     </template>
 
     <main class="main-col container">
@@ -68,29 +89,33 @@
         <rect x="5" y="5" width="90" height="90" mask="url(#mask)" fill="#ccc" fill-opacity="1"/>
       </svg>
 
-      <nav class="nav-bar">
+      <div class="row d-flex justify-content-center">
 
-        <div class="btn-nav shadow-inset btn-nav-depressed">
-          About
-        </div>
+        <nav class="nav-bar">
 
-        <div class="btn-nav shadow-outset">
-          Web (Full-Stack)
-        </div>
+          <div class="btn-nav shadow-inset btn-nav-depressed">
+            About
+          </div>
 
-        <div class="btn-nav shadow-outset">
-          Web (Static)
-        </div>
+          <div class="btn-nav shadow-outset">
+            Web (Full-Stack)
+          </div>
 
-        <div class="btn-nav shadow-outset">
-          Web (Games)
-        </div>
+          <div class="btn-nav shadow-outset">
+            Web (Static)
+          </div>
 
-        <div class="btn-nav shadow-outset">
-          Unity / VR
-        </div>
+          <div class="btn-nav shadow-outset">
+            Web (Games)
+          </div>
 
-      </nav>
+          <div class="btn-nav shadow-outset">
+            Unity / VR
+          </div>
+
+        </nav>
+
+      </div>
 
       <div class="panel-col">
 
@@ -162,6 +187,7 @@
           <div class="panel-content">
 
             <div id="kanji-cam" class="project-box"></div>
+            <div id="caravana" class="project-box"></div>
 
           </div>
 

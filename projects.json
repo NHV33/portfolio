@@ -1,11 +1,23 @@
 {
   "kanji-cam": {
     "name": "Kanji Cam",
-    "icons": ["rails", "postgres", "html5", "sass", "js", "git", "github"],
-    "image": "https://www.errth.net/content/images/size/w2000/2021/05/IMG20210512232754-mod.jpg",
-    "info": "Here is a description of the project",
-    "demo": "https://startpage.com",
+    "icons": ["rails", "postgres", "html5", "sass", "bootstrap", "js", "git", "github"],
+    "image": "",
+    "video": "/images/kanji-cam.webm",
+    "info": "Kanji Cam is a fun and effortless way to learn Japanese <a href='https://en.wikipedia.org/wiki/Kanji' target='_blank'>kanji</a> by simply taking pictures. Kanji Cam handles the chore of creating and sorting flashcards so you can focus on your Japanese learning goals. Kanji are scanned via OCR using a custom UI frontend built around Tesseract.js.",
+    "demo": "https://kanji.cam",
+    "code": "https://github.com/nhv33/kanji_cam",
+    "watch": ""
+  },
+
+  "caravana": {
+    "name": "Caravana",
+    "icons": ["rails", "postgres", "html5", "sass", "bootstrap", "js", "git", "github"],
+    "image": "",
+    "video": "/images/caravana.webm",
+    "info": "Caravana is a full-stack marketplace app allowing users to rent-out or reserve recreational vehicles. Developed as a project at Le Wagon Coding Bootcamp.",
+    "demo": "",
     "code": "https://github.com",
-    "video": "https://youtube.com"
+    "watch": ""
   }
 }
