@@ -190,36 +190,52 @@ function newElement(tag, classes) {
 
 const projectTemplate = document.getElementById("project-template");
 
-function renderFromTemplate(projectName, projectInfo) {
-  let template = projectTemplate.cloneNode(true).content;
-
-  template.querySelector(".project-name").innerText = projectInfo.name;
-  template.querySelector(".project-info").innerText = projectInfo.info;
-  template.querySelector(".project-image").src = projectInfo.image;
-  template.querySelector(".project-demo").href = projectInfo.demo;
-  template.querySelector(".project-code").href = projectInfo.code;
-  template.querySelector(".project-video").href = projectInfo.video;
-
-  // project-icons
-  const iconBox = template.querySelector(".project-icons")
+function addIcons(iconBox, iconList) {
   iconBox.textContent = "";
-  projectInfo.icons.forEach(iconName => {
+  iconList.forEach(iconName => {
     const newIcon = newElement("img", "project-icon");
     newIcon.src = `svg/${iconName}.svg`;
     iconBox.append(newIcon);
   });
+}
+
+function renderFromTemplate(projectName, projectInfo) {
+
+  let template = projectTemplate.cloneNode(true).content;
+
+  const infoSections = [
+    // use innerHTML to permit rendering of HTML strings
+    {name: "name",  attribute: "innerHTML"},
+    {name: "info",  attribute: "innerHTML"},
+    {name: "image", attribute: "src"},
+    {name: "demo",  attribute: "href"},
+    {name: "code",  attribute: "href"},
+    {name: "video", attribute: "href"},
+  ]
+
+  infoSections.forEach(section => {
+    const templateSection = template.querySelector(`.project-${section.name}`);
+    const sectionContent = projectInfo[section.name];
+    if ([null, undefined, ""].includes(sectionContent)) {
+      // Delete the element from the template if the JSON field is blank.
+      templateSection.remove();
+    } else {
+      templateSection[section.attribute] = sectionContent;
+    }
+  });
+
+  addIcons(template.querySelector(".project-icons"), projectInfo.icons);
 
   document.getElementById(projectName).append(template);
 }
 
-let hostname = String(window.location.host);
-// hostname = "github.io";
-const fetchURL = (hostname.includes("github")) ? "https://nhv33.github.io/portfolio/projects.json" : "/projects.json";
-console.log("fetchURL: ", fetchURL);
 
 async function fetchProjects() {
-  // const fetchURL = (hostname.includes("github")) ? "portfolio/projects.json" : "/projects.json";
-  // console.log("fetchURL: ", fetchURL);
+  const hostname = String(window.location.host);
+  const fetchURL = (hostname.includes("github")) ?
+    "https://nhv33.github.io/portfolio/projects.json" :
+    "/projects.json";
+  console.log("fetchURL: ", fetchURL);
   const response = await fetch(fetchURL);
   const projects = await response.json();
   console.log(projects);

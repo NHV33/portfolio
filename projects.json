@@ -1,7 +1,7 @@
 {
-  "test-project": {
-    "name": "Cool Project",
-    "icons": ["html5", "css", "js", "github"],
+  "kanji-cam": {
+    "name": "Kanji Cam",
+    "icons": ["rails", "postgres", "html5", "sass", "js", "git", "github"],
     "image": "https://www.errth.net/content/images/size/w2000/2021/05/IMG20210512232754-mod.jpg",
     "info": "Here is a description of the project",
     "demo": "https://startpage.com",
