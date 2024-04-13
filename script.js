@@ -153,7 +153,8 @@ function navButtonReset(element) {
 function navButtonDepress(element) {
   swapClasses(element, "shadow-outset", "shadow-inset");
   swapClasses(element, "blank", "btn-nav-depressed");
-  element.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+  // Scrolling inline:"center" unfortunately scrolls the entire page.
+  element.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
 }
 
 navButtons.forEach(navButton => {

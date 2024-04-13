@@ -47,22 +47,22 @@
                   <img src="svg/js.svg" class="project-icon"></img>
                 </div>
 
-                <div class="col px-4 d-flex flex-column justify-content-center align-items-center">
+                <div class="mb-3 col px-4 d-flex flex-column justify-content-center align-items-center">
 
                   <p class="project-info fs-5 my-3">
                     The following is a description of the project.
                     It explains the software's unique features and the technology ulitized.
                   </p>
 
-                  <a href="https://youtube.com" target="_blank" class="project-demo col-8 btn btn-success rounded-pill fs-5 text-nowrap text-center">
+                  <a href="https://youtube.com" target="_blank" class="project-demo col-8 btn btn-success rounded-pill fs-5 mt-3 text-nowrap text-center">
                     Try it out
                   </a>
 
-                  <a href="https://youtube.com" target="_blank" class="project-code col-8 btn btn-secondary rounded-pill fs-5 bg-black font-success text-nowrap text-center font-monospace m-3">
+                  <a href="https://youtube.com" target="_blank" class="project-code col-8 btn btn-secondary rounded-pill fs-5 mt-3 bg-black font-success text-nowrap text-center font-monospace">
                     { View Code }
                   </a>
 
-                  <a href="https://youtube.com" target="_blank" class="project-watch col-8 btn btn-secondary rounded-pill fs-5 bg-danger font-success text-nowrap text-center">
+                  <a href="https://youtube.com" target="_blank" class="project-watch col-8 btn btn-secondary rounded-pill fs-5 mt-3 bg-danger font-success text-nowrap text-center">
                     Watch Demo
                   </a>
 
@@ -78,8 +78,26 @@
 
     </template>
 
-    <main class="main-col container">
-      <svg id="title-svg" viewbox="0 10 100 12" class="inset-shadow">
+    <div class="social-links">
+
+      <a href="https://www.linkedin.com/in/noel-vincent-8726812b9" target="_blank" class="social-link">
+        <img class="project-icon" src="svg/linkedin.svg" alt="Linked-In">
+        <span class="fs-6 px-2">
+          Linked-In
+        </span>
+      </a>
+
+      <a href="https://github.com/NHV33" target="_blank" class="social-link">
+        <img class="project-icon" src="svg/github.svg" alt="Linked-In">
+        <span class="fs-6 px-2">
+          GitHub
+        </span>
+      </a>
+
+    </div>
+
+    <main class="main-col">
+      <svg id="title-svg" viewbox="0 10 100 12" class="title-svg col-lg-8 col-sm-12">
         <defs>
           <mask id="mask" x="0" y="0" width="100" height="50">
             <rect x="0" y="0" width="100" height="100" fill="#fff"/>
@@ -89,7 +107,9 @@
         <rect x="5" y="5" width="90" height="90" mask="url(#mask)" fill="#ccc" fill-opacity="1"/>
       </svg>
 
-      <div class="row d-flex justify-content-center">
+      <div class="row nav-container">
+
+        <div class="nav-gradient"></div>
 
         <nav class="nav-bar">
 
@@ -117,18 +137,67 @@
 
       </div>
 
-      <div class="panel-col">
+      <div class="panel-col container">
 
         <div id="panel-about" class="panel-container active-panel">
           <div class="panel-shadow shadow-inset"></div>
           <div class="panel-content">
-            <div class="row">
+
+            <div class="row mt-3">
               <!-- <h1 class="text-center">Welcome</h1> -->
             </div>
+
             <div class="row">
-              <div class="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center">
-                <img class="w-50 mb-3 rounded-pill" src="images/me.png" alt="100001">
+
+              <div class="col-lg-6 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+
+                <img class="w-50 mb-3 rounded-pill" src="media/me.png" alt="100001">
+
+                <div class="project-icons mb-3" style="height: 77px;">
+                  <!-- Unfortunately the retro html tag couldn't do continuous scrolling. -->
+                  <!-- <marquee truespeed scrolldelay="10" scrollamount="1" width="100%" direction="right" height="100%"></marquee> -->
+                  <div class="icon-marquee">
+                    <img src="svg/html5.svg" class="project-icon"></img>
+                    <img src="svg/css.svg" class="project-icon"></img>
+                    <img src="svg/js.svg" class="project-icon"></img>
+                    <img src="svg/rails.svg" class="project-icon"></img>
+                    <img src="svg/postgres.svg" class="project-icon"></img>
+                    <img src="svg/sass.svg" class="project-icon"></img>
+                    <img src="svg/bootstrap.svg" class="project-icon"></img>
+                    <img src="svg/git.svg" class="project-icon"></img>
+                    <img src="svg/github.svg" class="project-icon"></img>
+                    <img src="svg/c-sharp.svg" class="project-icon"></img>
+                    <img src="svg/unity.svg" class="project-icon"></img>
+                    <img src="svg/python.svg" class="project-icon"></img>
+                    <img src="svg/html5.svg" class="project-icon"></img>
+                    <img src="svg/css.svg" class="project-icon"></img>
+                    <img src="svg/js.svg" class="project-icon"></img>
+                    <img src="svg/rails.svg" class="project-icon"></img>
+                    <img src="svg/postgres.svg" class="project-icon"></img>
+                    <img src="svg/sass.svg" class="project-icon"></img>
+                    <img src="svg/bootstrap.svg" class="project-icon"></img>
+                    <img src="svg/git.svg" class="project-icon"></img>
+                    <img src="svg/github.svg" class="project-icon"></img>
+                    <img src="svg/c-sharp.svg" class="project-icon"></img>
+                    <img src="svg/unity.svg" class="project-icon"></img>
+                    <img src="svg/python.svg" class="project-icon"></img>
+                    <img src="svg/html5.svg" class="project-icon"></img>
+                    <img src="svg/css.svg" class="project-icon"></img>
+                    <img src="svg/js.svg" class="project-icon"></img>
+                    <img src="svg/rails.svg" class="project-icon"></img>
+                    <img src="svg/postgres.svg" class="project-icon"></img>
+                    <img src="svg/sass.svg" class="project-icon"></img>
+                    <img src="svg/bootstrap.svg" class="project-icon"></img>
+                    <img src="svg/git.svg" class="project-icon"></img>
+                    <img src="svg/github.svg" class="project-icon"></img>
+                    <img src="svg/c-sharp.svg" class="project-icon"></img>
+                    <img src="svg/unity.svg" class="project-icon"></img>
+                    <img src="svg/python.svg" class="project-icon"></img>
+                  </div>
+                </div>
+
               </div>
+
               <div class="col-lg-6 col-sm-12">
                 <h1>
                   Who am I?
@@ -156,8 +225,8 @@
                 <table>
                   <tbody>
                     <tr>
-                      <td>JavaScript / CSS / HTML5</td>
-                      <td>| 4 Years</td>
+                      <td>HTML5 / CSS / JS</td>
+                      <td>| 5 Years</td>
                     </tr>
                     <tr>
                       <td>Ruby on Rails</td>
@@ -211,6 +280,15 @@
             <div id="vetris" class="project-box"></div>
             <div id="2048" class="project-box"></div>
             <div id="matchgame" class="project-box"></div>
+          </div>
+
+        </div>
+
+        <div id="panel-unity" class="panel-container">
+          <div class="panel-shadow shadow-inset"></div>
+
+          <div class="panel-content">
+            <div id="verdict" class="project-box"></div>
           </div>
 
         </div>
