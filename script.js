@@ -1,12 +1,7 @@
-/*Util Classes*/
+/*Utility Classes*/
 
 const clone = (jsonObject) => { return JSON.parse(JSON.stringify(jsonObject)); };
 const swapClasses = (target, c1, c2) => { target.classList.remove(c1); target.classList.add(c2); };
-
-// var child = document.getElementById('my_element');
-// var parent = child.parentNode;
-// The equivalent of parent.children.indexOf(child)
-// var index = Array.prototype.indexOf.call(parent.children, child);
 
 function siblingIndex(child) {
   const parent = child.parentNode;
@@ -19,6 +14,7 @@ const titleSVG = document.getElementById("title-svg");
 const navBar = document.querySelector(".nav-bar");
 const navButtons = document.querySelectorAll(".btn-nav");
 const panelGroup = document.querySelector(".panel-col");
+const projectTemplate = document.getElementById("project-template");
 
 /* State */
 
@@ -43,9 +39,7 @@ function setShadowParams(shadowElement, shadow) {
   const x = shadow.x;
   const y = shadow.y;
   const range = shadow.range;
-  // console.log(x, y, range);
   const styleString = `drop-shadow(rgba(0, 0, 0, 0.5) ${x}${unit} ${y}${unit} ${range}${unit}`;
-  // console.log("styleString: ", styleString);
 
   shadowElement.style.filter = styleString;
 }
@@ -57,20 +51,17 @@ function incrementShadow(shadowElement, x, y, range) {
     y: shadow.y + y,
     range: shadow.range + range
   }
-  // console.log("newShadow: ", newShadow);
 
   setShadowParams(shadowElement, newShadow);
 }
 
 function setShadowAngle(shadowElement, radius, angle, range) {
   const radians = angle * (Math.PI / 180);
-  // console.log("radians: ", radians);
   const newShadow = getShadowParams(shadowElement);
   newShadow.x = radius * Math.sin(radians);
   newShadow.y = radius * Math.cos(radians);
   newShadow.range = range;
   setShadowParams(shadowElement, newShadow);
-  // console.log("shadow: ", shadow);
 
 }
 
@@ -106,19 +97,10 @@ function setOtherShadows(refElement, target, setting) {
   }
 }
 
-// drop-shadow(rgba(0, 0, 0, 0.4) 4vw 3vw 2vw);
 document.addEventListener('DOMContentLoaded', (event) => {
   titleShadow = getShadowParams(titleSVG);
 });
 
-
-// setInterval(() => {
-//   if (titleShadow.y < 3) {
-//     incrementShadow(titleSVG, -0.005, 0.01, 0.007);
-//     titleShadow = getShadowParams(titleSVG);
-//     console.log("titleShadow: ", titleShadow);
-//   }
-// }, 2);
 
 setInterval(() => {
   if (shadowAngle > 0) {
@@ -193,8 +175,6 @@ function newElement(tag, classes) {
   newElem.className = classes;
   return newElem;
 }
-
-const projectTemplate = document.getElementById("project-template");
 
 function addIcons(iconBox, iconList) {
   iconBox.textContent = "";
