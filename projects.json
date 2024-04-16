@@ -90,7 +90,7 @@
   "verdict": {
     "name": "VeRdict (VR Dictionary)",
     "icons": ["unity", "c-sharp"],
-    "image": "/media/verdict.png",
+    "image": "https://res.cloudinary.com/dwxenvvse/image/upload/v1713171734/verdict_tqb74n.png",
     "video": "",
     "info": "VeRdict is a bilingual Japanese-English dictionary component that can be used inside Unity-based VR applications, such as VRChat. In addition to basic word search, VeRdict can display 3D models corresponding to a target word, and interactive labels can be added to objects within the 3D scene that link to dictionary entries. Research presented at iLRN2021.",
     "demo": "",
