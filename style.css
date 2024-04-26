@@ -8,7 +8,7 @@
 .title-svg {
   filter: drop-shadow(rgba(0, 0, 0, 0.6) 0px 0px 0.3vw);
   clip-path: inset(15%);
-  border: 5px solid purple;
+  /* border: 5px solid purple; */
 }
 
 body {
@@ -21,11 +21,6 @@ body {
 a {
   text-decoration: none;
 }
-
-/* td {
-  padding: 5px 10px 5px 10px;
-  text-align: center;
-} */
 
 .social-links {
   z-index: 100;
