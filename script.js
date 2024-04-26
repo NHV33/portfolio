@@ -181,8 +181,11 @@ navButtons.forEach(navButton => {
 function renderPanelContent(newPanel) {
   const projectBoxes = newPanel.querySelectorAll(".project-box");
   projectBoxes.forEach(projectBox => {
-    const projectName = projectBox.id;
-    renderFromTemplate(projectName, projectsJSON[projectName]);
+    // Ensure to only inject content if div is empty.
+    if (projectBox.childElementCount === 0) {
+      const projectName = projectBox.id;
+      renderFromTemplate(projectName, projectsJSON[projectName]);
+    }
   });
 }
 
