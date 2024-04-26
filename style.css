@@ -83,12 +83,16 @@ a {
 }
 
 .project-image {
+  position: relative;
+  z-index: 4;
   object-fit: contain;
   height: 100%;
   width: 100%;
 }
 
 .project-video {
+  position: relative;
+  z-index: 5;
   object-fit: contain;
   height: 100%;
   width: 100%;
@@ -156,10 +160,6 @@ a {
 @keyframes spin360 {
   from {transform: rotate(0deg)}
   to   {transform: rotate(360deg)}
-}
-
-video {
-  z-index: 5;
 }
 
 .project-info-frame {
