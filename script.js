@@ -16,6 +16,10 @@ const navButtons = document.querySelectorAll(".btn-nav");
 const panelGroup = document.querySelector(".panel-col");
 const projectTemplate = document.getElementById("project-template");
 
+/* Data */
+let projectsJSON;
+fetchProjectsInfo();
+
 /* State */
 
 let activePanelIndex = 0;
@@ -139,6 +143,7 @@ function navButtonDepress(element) {
   element.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
 }
 
+// Define button behavior
 navButtons.forEach(navButton => {
   navButton.addEventListener('click', () => {
 
@@ -165,10 +170,21 @@ navButtons.forEach(navButton => {
 
     activePanelIndex = newPanelIndex;
 
+    // panel content is only rendered upon button press to improve performance
+    renderPanelContent(newPanel);
+
   });
 });
 
 /*Display Content*/
+
+function renderPanelContent(newPanel) {
+  const projectBoxes = newPanel.querySelectorAll(".project-box");
+  projectBoxes.forEach(projectBox => {
+    const projectName = projectBox.id;
+    renderFromTemplate(projectName, projectsJSON[projectName]);
+  });
+}
 
 function newElement(tag, classes) {
   const newElem = document.createElement(tag);
@@ -211,13 +227,28 @@ function renderFromTemplate(projectName, projectInfo) {
     }
   });
 
+  // const videoElement = template.querySelector(".project-video");
+  // videoElement.disabled = true;
+
+  // videoElement.addEventListener("click", () => {
+  //   console.log("clicked on video");
+  // });
+
+  // videoElement.addEventListener("visibilitychange", () => {
+  //   if (videoElement.visibilityState === "visible") {
+  //     videoElement.src = projectInfo["video"];
+  //     console.log("projectInfo['video']: ", projectInfo["video"]);
+  //     videoElement.disabled = false;
+  //   }
+  // });
+
   addIcons(template.querySelector(".project-icons"), projectInfo.icons);
 
   document.getElementById(projectName).append(template);
 }
 
 
-async function fetchProjects() {
+async function fetchProjectsInfo(activePanel) {
   const hostname = String(window.location.host);
   const fetchURL = (hostname.includes("github")) ?
     "https://nhv33.github.io/portfolio/projects.json" :
@@ -225,11 +256,7 @@ async function fetchProjects() {
   console.log("fetchURL: ", fetchURL);
   const response = await fetch(fetchURL);
   const projects = await response.json();
-  console.log(projects);
 
-  Object.keys(projects).forEach( projectName => {
-    renderFromTemplate(projectName, projects[projectName]);
-  });
+  projectsJSON = projects;
+
 }
-
-fetchProjects();
