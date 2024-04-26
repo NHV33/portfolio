@@ -20,7 +20,7 @@ const projectTemplate = document.getElementById("project-template");
 
 let activePanelIndex = 0;
 
-/* Title SVG */
+/* Interactive Shadows */
 
 function getShadowParams(shadowElement) {
   const unit = "vw";
