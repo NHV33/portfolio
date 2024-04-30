@@ -37,7 +37,7 @@
     "icons": ["html5", "css", "js", "bootstrap", "git", "github"],
     "image": "",
     "video": "https://noelvincent.sirv.com/portfolio/this.mp4",
-    "info": "I created this portfolio page from scratch in vanilla HTML5 / CSS / JS without AI assistance to showcase my front-end ability. In lieu of a database, details about each project are loaded in from a JSON file using the fetch API, then injected into an HTML template. With the exception of Bootstrap, this project is dependency-free.",
+    "info": "I created this portfolio page from scratch in vanilla JavaScript / HTML5 / CSS without AI assistance to showcase my front-end ability. In lieu of a database, details about each project are loaded in from a JSON file using the fetch API, then injected into an HTML template. With the exception of Bootstrap, this project is dependency-free.",
     "demo": "https://nhv33.github.io/portfolio",
     "code": "https://github.com/NHV33/portfolio",
     "watch": ""
@@ -59,7 +59,7 @@
     "icons": ["html5", "css", "js", "git", "github"],
     "image": "",
     "video": "https://noelvincent.sirv.com/portfolio/vetris.mp4",
-    "info": "This is my take on the classic game, Tetris. The game is implemented using vanilla HTML5 / CSS / JS and created using 100% NI (natural intelligence) :P",
+    "info": "This is my take on the classic game, Tetris. The game is implemented using vanilla JavaScript / HTML5 / CSS and created using 100% NI (natural intelligence) :P",
     "demo": "https://nhv33.github.io/vetris",
     "code": "https://github.com/NHV33/vetris",
     "watch": ""
@@ -81,7 +81,7 @@
     "icons": ["html5", "css", "js", "git", "github"],
     "image": "",
     "video": "https://noelvincent.sirv.com/portfolio/matchgame.mp4",
-    "info": "This is my implementation of a simple card-matching memory game. This game supports up to 8 players (local) and touch controls. Implemented in vanilla HTML5 / CSS / JS.",
+    "info": "This is my implementation of a simple card-matching memory game. This game supports up to 8 players (local) and touch controls. Implemented in vanilla JavaScript / HTML5 / CSS.",
     "demo": "https://nhv33.github.io/matchgame",
     "code": "https://github.com/NHV33/matchgame",
     "watch": ""
